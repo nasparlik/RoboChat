@@ -1,0 +1,10 @@
+<div class="row columns" >
+  <button (click)="login()" *ngIf="!name">Login With Facebook</button>
+<p class="none">{{getData}}</p>
+<input type="text" id="username" *ngIf="!name" placeholder="your name here" [(ngModel)]="nameVal" />
+  <input type="text" id="message" *ngIf="name" placeholder="Chat here" (keyup.enter)="chatSend($event.target.value)" [(ngModel)]="msgVal" />
+    <div class="chat-container" *ngFor="let item of items | async">
+      <a href="#"> {{ item.name }}</a>     
+      <p>{{item.message}}</p>
+    </div>
+</div>
